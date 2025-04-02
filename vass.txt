@@ -1,0 +1,127 @@
+{
+
+	"time!": {
+	 	"prefix": "tt",
+	 	"body": [
+			"import time",
+	 		"start_time = time.time()",
+			"end_time = time.time()",
+			"print(f'Exec time(sec): {end_time - start_time}')"
+	 	]	 	
+	},
+	
+	"Desktop": {
+	 	"prefix": "dd",
+	 	"body": [
+	 		"C:/Users/Anuar/Desktop/"
+	 	]	 	
+	},
+
+	"venv activate": {
+	 	"prefix": "rr",
+	 	"body": [
+	 		"R:\\venvs\\mainvenv\\Scripts\\activate.bat"
+	 	]	 	
+	},
+        
+	"Path": {
+	 	"prefix": "pp",
+	 	"body": [
+	 		"if not os.path.exists(output_dir): os.makedirs(output_dir)"
+	 	]	 	
+	},
+
+}
+
+
+
+
+
+
+
+
+
+Visual Studio Code 
+
+- Открывает табы по одинарному клику. Как сделать по двойному? (И вообще, система табов как таковая не работает)
+Найти параметр openMode
+
+- Убрать телеметрию
+telemetry
+
+- Новое окно открывает маленьким и посередине
+newWindowDimensions поставить inherit
+
+- Автоклоз
+auto closing
+
+- Всплывающие подсказки при печатании
+Найти settings.json, добавить 
+"editor.quickSuggestions": {
+		"comments": "off",
+		"strings": "off",
+		"other": "off"
+},
+"editor.suggestOnTriggerCharacters": false,
+"editor.parameterHints": false
+
+- Всплывающие подсказки при наведении мыши
+"editor.hover.enabled": false
+	
+- При выборе таба автоматически выделяет этот файл в списке файлов - эксплорере
+autoReveal
+
+
+
+
+
+
+Удобный запуск питон скрипта 
+Терминал поставить сбоку справа.
+keybindings.json - туда можно зайти через файл File - Preferences - Keyboard Shortcuts - Сверху нажать открыть в json
+Добавил такой код
+{
+	 "key": "ctrl+f5",
+	 "command": "workbench.action.terminal.sendSequence",
+	 "args": {
+		 "text": "cls; python.exe main.py \u000D"
+	}
+}
+Раньше стояла python.execInTerminal - неудобно - запускал текущий файл и терминал не очищался (нужно было прямо в питон-коде делать import os и затем cls)
+
+
+- Убрать hover при наведении мыши на текст
+Убрать галку Controls whether the hover is shown
+
+
+
+
+
+
+
+
+
+
+
+
+Как создать постоянный subst
+
+Создать файл reg с таким содержанием (REGEDIT4 в начале - обязательно) и выполнить
+
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices] 
+""X:""=""\\??\\D:\\XDISK"""
+
+
+
+Для windows 10 через reg файл не сработал. Зато сработал cmd файл, запущенный через админа
+
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v X: /t REG_SZ /d "\??\A:\XDISK" /f
+pause
+
+
+
+
+
+
